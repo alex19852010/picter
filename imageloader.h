@@ -8,22 +8,27 @@
 #include <QPixmap>
 #include <QFileDialog>
 #include <QtWidgets>
+#include <QSlider>
+#include <QPixmap>
 
-class imageLoader : QObject
+class imageLoader : public QObject
 {
   Q_OBJECT
 
 public:
-    imageLoader();
+    imageLoader(QLabel *label, QSlider *slider);
 
 
 public slots:
     void loadImage();
 
+public slots:
+    void changeImage(int value);
 
 
 private:
-    QLabel label;
+    QLabel *label;
+    QSlider *slider;
 
 };
 
